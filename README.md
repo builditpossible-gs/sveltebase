@@ -1,4 +1,4 @@
-# BvelteBase
+# SvelteBase
 A Sveltekit starter Project built with [Prisma](https://www.prisma.io/), [Lucia Auth](https://lucia-auth.com/), [Flowbite Svelte](https://flowbite-svelte.com/).
 
 

@@ -13,31 +13,44 @@ generator client {
 }
 
 model User {
-  id           String    @id @unique 
-  email        String    @unique
-  name         String?    
-  username     String?   
-  email_verified Boolean @default(false) 
-  auth_session Session[]
-  key          Key[]
+  id                 String              @id @unique
+  email              String              @unique
+  name               String?
+  username           String?
+  email_verified     Boolean             @default(false)
+  auth_session       Session[]
+  key                Key[]
+  verification_token VerificationToken[]
 }
 
 model Session {
-  id             String @id @unique
-  user_id        String 
+  id             String  @id @unique
+  user_id        String
+  username       String?
   active_expires BigInt
-  username       String?    
   idle_expires   BigInt
-  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user           User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
 
   @@index([user_id])
 }
 
 model Key {
-  id              String  @id @unique 
+  id              String  @id @unique
   hashed_password String?
   user_id         String
   user            User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
+}
+
+model VerificationToken {
+  id                     String  @id @unique
+  user_id                String  @unique
+  email_token_expires    BigInt?
+  email_token            String? @unique
+  password_token_expires BigInt?
+  password_token         String? @unique
+  user                   User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
 
   @@index([user_id])
 }

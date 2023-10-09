@@ -1,6 +1,10 @@
 <script lang="ts">
   import { Section, Register } from "flowbite-svelte-blocks";
-  import { Button, Checkbox, Label, Input } from "flowbite-svelte";
+  import { Button, Checkbox, Label, Input, Alert } from "flowbite-svelte";
+  import type { ActionData } from "./$types";
+  import { enhance } from "$app/forms";
+  
+  export let form: ActionData;
 </script>
 
 <section class="relative h-screen pt-20 flex">
@@ -29,7 +33,7 @@
             Flowbite
           </svelte:fragment>
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <form class="flex flex-col space-y-6" method="post">
+            <form class="flex flex-col space-y-6" method="post" use:enhance>
               <Label class="space-y-2">
                 <span>Your email</span>
                 <Input
@@ -57,6 +61,16 @@
                   required
                 />
               </Label>
+              {#if form?.message}
+              <Alert>
+                <span class="font-medium">Opps!</span>
+                {#if form.message === "AUTH_INVALID_PASSWORD"}
+                  <p>Invalid Password</p>
+                  {:else}
+                  {form.message}
+                {/if}
+              </Alert>
+              {/if}
               <Button type="submit" class="w-full1">Sign up</Button>
               <p class="text-sm font-light text-gray-500 text-center dark:text-gray-400">
                 Already have an account yet? <a

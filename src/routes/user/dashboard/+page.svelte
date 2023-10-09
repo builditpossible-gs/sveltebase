@@ -12,7 +12,7 @@
             <h3 class="text-lg font-medium text-gray-700 dark:text-white">Oketa Fred</h3>
             <span class="text-sm tracking-wide text-gray-600 dark:text-gray-400">Fullstack Developer</span>
           </div>
-          <form action="/dashboard/logout" method="post" >
+          <form action="/user/dashboard/logout" method="post" >
             <Button type="submit" color="alternative">Logout</Button>
           </form>
         </div>

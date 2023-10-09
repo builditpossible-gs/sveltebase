@@ -1,6 +1,9 @@
 <script lang="ts">
   import { Section, Register } from "flowbite-svelte-blocks";
-  import { Button, Checkbox, Label, Input } from "flowbite-svelte";
+  import { Button, Label, Input, Alert } from "flowbite-svelte";
+  import type { ActionData } from "./$types";
+
+  export let form: ActionData;
 </script>
 
 <section class="relative h-screen pt-20 flex items-center">
@@ -16,7 +19,7 @@
   />
   <div class="container px-4 mx-auto">
     <div
-      class="max-w-md mx-auto py-6 lg:py-12 px-4 lg:px-8 bg-white rounded-xl "
+      class="max-w-md mx-auto py-6 lg:py-12 px-4 lg:px-8 bg-white rounded-xl"
     >
       <Section name="login">
         <Register href="/">
@@ -50,13 +53,21 @@
               </Label>
               <div class="flex items-start">
                 <a
-                  href="/"
+                  href="/forgot-password"
                   class="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500"
                   >Forgot password?</a
                 >
               </div>
+              {#if form?.message}
+                <Alert color="red">
+                  <span class="font-medium">Opps!</span>
+                  {form.message}
+                </Alert>
+              {/if}
               <Button type="submit" class="w-full1">Sign in</Button>
-              <p class="text-sm font-light text-center text-gray-500 dark:text-gray-400">
+              <p
+                class="text-sm font-light text-center text-gray-500 dark:text-gray-400"
+              >
                 Don’t have an account yet? <a
                   href="/signup"
                   class="font-medium text-primary-600 hover:underline dark:text-primary-500"

@@ -7,7 +7,7 @@ import { prisma_client } from "$lib/server/prisma"
 export const load: PageServerLoad = async ({ locals }) => {
     const session = await locals.auth.validate();
     if (session) {
-        throw redirect(302, '/dashboard');
+        throw redirect(302, '/user/dashboard');
     }
 };
 
@@ -59,6 +59,6 @@ export const actions: Actions = {
                 message: 'An unknown error occurred'
             });
         }
-        throw redirect(302, '/dashboard');
+        throw redirect(302, '/user/dashboard');
     }
 }

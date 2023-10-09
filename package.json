@@ -11,6 +11,7 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
+		"@prisma/client": "^5.4.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -22,7 +23,7 @@
 		"flowbite-svelte": "^0.44.18",
 		"flowbite-svelte-blocks": "^0.5.1",
 		"postcss": "^8.4.31",
-		"prisma": "^5.3.1",
+		"prisma": "^5.4.1",
 		"svelte": "^4.0.5",
 		"svelte-check": "^3.4.3",
 		"tailwindcss": "^3.3.3",
@@ -33,6 +34,7 @@
 	"type": "module",
 	"dependencies": {
 		"@lucia-auth/adapter-prisma": "^3.0.2",
-		"lucia": "^2.7.1"
+		"lucia": "^2.7.1",
+		"resend": "^1.1.0"
 	}
 }

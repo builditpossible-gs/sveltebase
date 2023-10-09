@@ -7,11 +7,13 @@ A Sveltekit starter Project built with [Prisma](https://www.prisma.io/), [Lucia 
 * Prisma
 * Lucia Auth
 * Auth System (Login and Register)
+* Forgot Password
+* Email Verification
 
 
 **Upcoming**
-* Forgot Password
-* Email Verification
+* Admin 
+* User management
 
 **Getting started**
 
